@@ -1,0 +1,26 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+const poems = await getCollection('poems');
+const entries = await Promise.all(
+  poems.map(async (poem) => ({
+    poem,
+    author: await getEntry(poem.data.author),
+  }))
+);
+---
+
+<Base title="Poems">
+  <h1>Poems</h1>
+  <ul style="list-style: none; padding: 0;">
+    {
+      entries.map(({ poem, author }) => (
+        <li style="margin-block: 1.5rem;">
+          <a href={`/poems/${poem.id}/`}>{poem.data.title}</a>
+          <div class="byline">{author?.data.name}</div>
+        </li>
+      ))
+    }
+  </ul>
+</Base>
