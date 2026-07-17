@@ -1,0 +1,23 @@
+# build output
+dist/
+.astro/
+
+# dependencies
+node_modules/
+
+# environment
+.env
+.env.*
+!.env.example
+
+# ebook libraries and raw source material — never commit copyrighted texts
+ebooks/
+poetry-ebooks/
+*.epub
+*.pdf
+*.mobi
+data/raw/
+
+# os / editor
+.DS_Store
+Thumbs.db

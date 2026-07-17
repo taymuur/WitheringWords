@@ -1,0 +1,32 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PoemMeta from '../../components/PoemMeta.astro';
+
+export async function getStaticPaths() {
+  const poems = await getCollection('poems');
+  return poems.map((poem) => ({ params: { id: poem.id }, props: { poem } }));
+}
+
+const { poem } = Astro.props;
+const author = await getEntry(poem.data.author);
+const { Content } = await render(poem);
+---
+
+<Base title={poem.data.title}>
+  <article data-pagefind-body>
+    <h1>{poem.data.title}</h1>
+    <PoemMeta poem={poem} author={author} />
+    <div class="poem-body">
+      <Content />
+    </div>
+    {
+      poem.data.rights === 'excerpt' && (
+        <p class="byline">
+          An excerpt. <a href={poem.data.findTheBook}>Find the book</a>
+          {poem.data.source && <> — <cite>{poem.data.source}</cite></>}.
+        </p>
+      )
+    }
+  </article>
+</Base>
