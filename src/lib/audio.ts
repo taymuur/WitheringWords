@@ -5,7 +5,7 @@
  * a missing/suspended context as "stay silent".
  */
 
-type Ambience = 'off' | 'birds' | 'stream' | 'rain';
+type Ambience = 'off' | 'birds' | 'stream' | 'rain' | 'crickets';
 
 let ctx: AudioContext | null = null;
 let master: GainNode | null = null;
@@ -207,6 +207,33 @@ function startBirds(h: AmbienceHandle): void {
   h.timers.push(setTimeout(sing, 400));
 }
 
+/** Night crickets: soft pulsed trills at ~4.2 kHz, drifting left and right. */
+function startCrickets(h: AmbienceHandle): void {
+  const trill = () => {
+    if (current !== h || !audioRunning()) return;
+    const pan = ctx!.createStereoPanner();
+    pan.pan.value = Math.random() * 1.4 - 0.7;
+    pan.connect(h.gain);
+    const f = 4000 + Math.random() * 600;
+    const pulses = 5 + Math.floor(Math.random() * 6);
+    let t = ctx!.currentTime + 0.05;
+    for (let i = 0; i < pulses; i++) {
+      const o = ctx!.createOscillator();
+      o.frequency.value = f;
+      const og = ctx!.createGain();
+      og.gain.setValueAtTime(0.0001, t);
+      og.gain.exponentialRampToValueAtTime(0.012, t + 0.008);
+      og.gain.exponentialRampToValueAtTime(0.0001, t + 0.035);
+      o.connect(og).connect(pan);
+      o.start(t);
+      o.stop(t + 0.04);
+      t += 0.055;
+    }
+    h.timers.push(setTimeout(trill, 500 + Math.random() * 2200));
+  };
+  h.timers.push(setTimeout(trill, 300));
+}
+
 export function setAmbience(kind: Ambience): void {
   if (current) {
     fadeOut(current);
@@ -218,5 +245,6 @@ export function setAmbience(kind: Ambience): void {
   current = h;
   if (kind === 'stream') startStream(h);
   else if (kind === 'rain') startRain(h);
+  else if (kind === 'crickets') startCrickets(h);
   else startBirds(h);
 }

@@ -16,6 +16,7 @@
         <option value="birds">birdsong</option>
         <option value="stream">stream</option>
         <option value="rain">rain</option>
+        <option value="crickets">night crickets</option>
       </select>
     </label>
     <label>
@@ -53,7 +54,7 @@
     narrating,
   } from '../lib/narration';
 
-  type Amb = 'off' | 'birds' | 'stream' | 'rain';
+  type Amb = 'off' | 'birds' | 'stream' | 'rain' | 'crickets';
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const state = {
