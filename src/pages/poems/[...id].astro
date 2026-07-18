@@ -33,13 +33,15 @@ const AMBIENCE_FOR_MOOD: Record<string, { kind: string; label: string }> = {
   pastoral: { kind: 'birds', label: 'let birds sing while you read' },
   morning: { kind: 'birds', label: 'let birds sing while you read' },
   nature: { kind: 'birds', label: 'let birds sing while you read' },
+  night: { kind: 'crickets', label: 'let crickets sing while you read' },
+  evening: { kind: 'crickets', label: 'let crickets sing while you read' },
 };
 const suggestion = poem.data.moods
   .map((m) => AMBIENCE_FOR_MOOD[m])
   .find(Boolean);
 ---
 
-<Base title={poem.data.title} description={description}>
+<Base title={poem.data.title} description={description} ogImage={`/og/${poem.id}.png`}>
   <article data-pagefind-body>
     <h1>{poem.data.title}</h1>
     <PoemMeta poem={poem} author={author} />
