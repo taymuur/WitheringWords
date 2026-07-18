@@ -33,6 +33,8 @@ const AMBIENCE_FOR_MOOD: Record<string, { kind: string; label: string }> = {
   pastoral: { kind: 'birds', label: 'let birds sing while you read' },
   morning: { kind: 'birds', label: 'let birds sing while you read' },
   nature: { kind: 'birds', label: 'let birds sing while you read' },
+  birds: { kind: 'birds', label: 'let birds sing while you read' },
+  garden: { kind: 'birds', label: 'let birds sing while you read' },
   night: { kind: 'crickets', label: 'let crickets sing while you read' },
   evening: { kind: 'crickets', label: 'let crickets sing while you read' },
 };
@@ -67,11 +69,13 @@ const suggestion = poem.data.moods
     }
     {
       poem.data.moods.length > 0 && (
-        <p class="byline mood-line" data-pagefind-ignore>
+        <p class="byline mood-line">
           {poem.data.moods.map((mood, i) => (
             <>
               {i > 0 && ' · '}
-              <a href={`/moods/${mood}/`}>{mood}</a>
+              <a href={`/moods/${mood}/`} data-pagefind-filter="mood">
+                {mood}
+              </a>
             </>
           ))}
         </p>

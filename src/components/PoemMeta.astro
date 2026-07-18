@@ -12,7 +12,9 @@ const { poem, author } = Astro.props;
 <p class="byline">
   {
     author ? (
-      <a href={`/authors/${author.id}/`}>{author.data.name}</a>
+      <a href={`/authors/${author.id}/`} data-pagefind-filter="author">
+        {author.data.name}
+      </a>
     ) : (
       'Unknown'
     )
