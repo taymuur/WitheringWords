@@ -1,0 +1,210 @@
+---
+/**
+ * The quiet sound corner: ambience picker, typing/page-turn effects toggle,
+ * and read-aloud controls (shown only on poem pages). Everything is opt-in
+ * and remembered in localStorage.
+ */
+---
+
+<details class="sound-dock" id="sound-dock">
+  <summary><span aria-hidden="true">♪</span> sound</summary>
+  <div class="dock-body">
+    <label>
+      ambience
+      <select id="amb-select">
+        <option value="off">off</option>
+        <option value="birds">birdsong</option>
+        <option value="stream">stream</option>
+        <option value="rain">rain</option>
+      </select>
+    </label>
+    <label>
+      <input type="checkbox" id="fx-toggle" />
+      typing &amp; page sounds
+    </label>
+    <div id="narration-controls" hidden>
+      <label>
+        voice
+        <select id="voice-select"></select>
+      </label>
+      <button type="button" id="narrate-btn">read this poem aloud</button>
+    </div>
+  </div>
+</details>
+
+<script>
+  import {
+    ensureAudio,
+    audioRunning,
+    typeClick,
+    pageTurn,
+    setAmbience,
+  } from '../lib/audio';
+  import {
+    classify,
+    voicesReady,
+    speak,
+    stopNarration,
+    narrating,
+  } from '../lib/narration';
+
+  type Amb = 'off' | 'birds' | 'stream' | 'rain';
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const state = {
+    get ambience(): Amb {
+      return (localStorage.getItem('ww:ambience') as Amb) ?? 'off';
+    },
+    set ambience(v: Amb) {
+      localStorage.setItem('ww:ambience', v);
+    },
+    get fx(): boolean {
+      return localStorage.getItem('ww:fx') === 'on';
+    },
+    set fx(v: boolean) {
+      localStorage.setItem('ww:fx', v ? 'on' : 'off');
+    },
+    get voice(): string | null {
+      return localStorage.getItem('ww:voice');
+    },
+    set voice(v: string | null) {
+      if (v) localStorage.setItem('ww:voice', v);
+    },
+  };
+
+  const $ = <T extends HTMLElement>(id: string) =>
+    document.getElementById(id) as T | null;
+
+  function populateVoices(select: HTMLSelectElement): void {
+    voicesReady((voices) => {
+      if (!voices.length) {
+        select.closest('#narration-controls')?.setAttribute('hidden', '');
+        return;
+      }
+      const groups: Record<string, SpeechSynthesisVoice[]> = {
+        female: [],
+        male: [],
+        other: [],
+      };
+      for (const v of voices) groups[classify(v)].push(v);
+      select.innerHTML = '';
+      for (const name of ['female', 'male', 'other'] as const) {
+        if (!groups[name].length) continue;
+        const og = document.createElement('optgroup');
+        og.label = `${name} voices`;
+        for (const v of groups[name]) {
+          const opt = document.createElement('option');
+          opt.value = v.voiceURI;
+          opt.textContent = v.name.replace(/\s*\(.*\)$/, '');
+          og.append(opt);
+        }
+        select.append(og);
+      }
+      const saved = state.voice;
+      if (saved && voices.some((v) => v.voiceURI === saved)) {
+        select.value = saved;
+      } else if (groups.female[0]) {
+        select.value = groups.female[0].voiceURI;
+      }
+    });
+  }
+
+  function poemStanzas(): string[] {
+    const title = document.querySelector('main h1')?.textContent?.trim() ?? '';
+    const byline =
+      document.querySelector('.byline')?.textContent?.split('·')[0]?.trim() ?? '';
+    const body =
+      (document.querySelector('.poem-body') as HTMLElement | null)?.innerText ??
+      '';
+    return [title, byline && `by ${byline}`, ...body.split(/\n\s*\n/)];
+  }
+
+  function initDock(): void {
+    const amb = $<HTMLSelectElement>('amb-select');
+    const fx = $<HTMLInputElement>('fx-toggle');
+    const voiceSelect = $<HTMLSelectElement>('voice-select');
+    const narrateBtn = $<HTMLButtonElement>('narrate-btn');
+    const narration = $('narration-controls');
+    if (!amb || !fx || !voiceSelect || !narrateBtn || !narration) return;
+
+    amb.value = state.ambience;
+    fx.checked = state.fx;
+
+    amb.onchange = () => {
+      state.ambience = amb.value as Amb;
+      setAmbience(state.ambience);
+    };
+    fx.onchange = () => {
+      state.fx = fx.checked;
+      if (fx.checked) {
+        ensureAudio();
+        typeClick();
+      }
+    };
+
+    if (document.querySelector('.poem-body')) {
+      narration.hidden = false;
+      populateVoices(voiceSelect);
+      voiceSelect.onchange = () => {
+        state.voice = voiceSelect.value;
+      };
+      narrateBtn.onclick = () => {
+        if (narrating()) {
+          stopNarration();
+          narrateBtn.textContent = 'read this poem aloud';
+          return;
+        }
+        narrateBtn.textContent = 'stop reading';
+        speak(poemStanzas(), voiceSelect.value || state.voice, () => {
+          narrateBtn.textContent = 'read this poem aloud';
+        });
+      };
+    } else {
+      narration.hidden = true;
+    }
+  }
+
+  /**
+   * Typewriter reveal on the page title. Screen readers get the full title
+   * immediately (visually-hidden copy); the animated copy is aria-hidden.
+   * Key clicks only once sound has been unlocked by a user gesture.
+   */
+  function typewriter(): void {
+    if (reducedMotion) return;
+    const h1 = document.querySelector<HTMLElement>('main h1');
+    if (!h1 || h1.dataset.tw) return;
+    h1.dataset.tw = 'done';
+    const text = h1.textContent ?? '';
+    h1.textContent = '';
+    const sr = document.createElement('span');
+    sr.className = 'visually-hidden';
+    sr.textContent = text;
+    const anim = document.createElement('span');
+    anim.className = 'tw-text';
+    anim.setAttribute('aria-hidden', 'true');
+    h1.append(sr, anim);
+    let i = 0;
+    const step = () => {
+      if (!anim.isConnected) return;
+      anim.textContent = text.slice(0, ++i);
+      if (state.fx && text[i - 1] !== ' ') typeClick();
+      if (i < text.length) {
+        setTimeout(step, 45 + Math.random() * 55);
+      } else {
+        anim.classList.add('tw-done');
+      }
+    };
+    setTimeout(step, 250);
+  }
+
+  document.addEventListener('astro:page-load', () => {
+    initDock();
+    typewriter();
+  });
+
+  document.addEventListener('astro:before-swap', () => stopNarration());
+
+  document.addEventListener('astro:after-swap', () => {
+    if (state.fx && audioRunning()) pageTurn();
+  });
+</script>

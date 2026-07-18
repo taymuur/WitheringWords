@@ -1,0 +1,34 @@
+---
+interface Link {
+  id: string;
+  title: string;
+}
+
+interface Props {
+  prev: Link | null;
+  next: Link | null;
+}
+
+const { prev, next } = Astro.props;
+---
+
+<nav class="poem-nav" aria-label="more poems">
+  {
+    prev ? (
+      <a rel="prev" href={`/poems/${prev.id}/`}>
+        <span aria-hidden="true">‹</span> {prev.title}
+      </a>
+    ) : (
+      <span />
+    )
+  }
+  {
+    next ? (
+      <a rel="next" href={`/poems/${next.id}/`}>
+        {next.title} <span aria-hidden="true">›</span>
+      </a>
+    ) : (
+      <span />
+    )
+  }
+</nav>

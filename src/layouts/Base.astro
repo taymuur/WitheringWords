@@ -1,5 +1,7 @@
 ---
+import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
+import SoundDock from '../components/SoundDock.astro';
 
 interface Props {
   title: string;
@@ -15,6 +17,8 @@ const { title, description = 'A quiet place to read poems.' } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <title>{title} · Withering Words</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <ClientRouter />
   </head>
   <body>
     <header style="text-align: center; padding-block: 2.5rem 0;">
@@ -26,5 +30,6 @@ const { title, description = 'A quiet place to read poems.' } = Astro.props;
     <footer style="text-align: center; color: var(--ink-soft); font-size: 0.85rem; padding-block: 2rem;">
       <p>read slowly.</p>
     </footer>
+    <SoundDock />
   </body>
 </html>
