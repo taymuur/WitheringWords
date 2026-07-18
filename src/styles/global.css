@@ -8,7 +8,8 @@
   --accent: #9c6644;
   --rule: #e0d6c3;
   --measure: 34rem;
-  --serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+  --serif: 'EB Garamond', 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia,
+    serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -30,8 +31,9 @@ html {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--serif);
-  font-size: 1.125rem;
-  line-height: 1.7;
+  /* Garamond runs small; a larger base keeps the measure comfortable. */
+  font-size: 1.25rem;
+  line-height: 1.65;
 }
 
 body {
