@@ -1,0 +1,17 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+const poems = await getCollection('poems');
+const ids = poems.map((p) => p.id);
+---
+
+<Base title="Wander" description="A poem at random.">
+  <h1>Wandering…</h1>
+  <noscript>
+    <p>Wandering needs a little JavaScript. <a href="/">Browse all poems instead.</a></p>
+  </noscript>
+  <script is:inline data-astro-rerun define:vars={{ ids }}>
+    location.replace(`/poems/${ids[Math.floor(Math.random() * ids.length)]}/`);
+  </script>
+</Base>
