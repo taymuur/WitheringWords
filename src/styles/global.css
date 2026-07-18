@@ -89,6 +89,22 @@ hr {
   margin-block: 3rem;
 }
 
+.skip-link {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -150%);
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  border-radius: 0 0 0.4rem 0.4rem;
+  padding: 0.5rem 1rem;
+  z-index: 20;
+  transition: transform 0.15s ease-out;
+}
+
+.skip-link:focus-visible {
+  transform: translate(-50%, 0);
+}
+
 .site-header {
   text-align: center;
   padding-block: 2.5rem 0;

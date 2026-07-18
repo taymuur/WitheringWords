@@ -356,6 +356,102 @@
       "raw": "larkin.txt",
       "start": "The trees are coming into leaf",
       "end": "Their greenness is a kind of grief."
+    },
+    {
+      "slug": "this-is-love",
+      "title": "This is Love",
+      "author": "rumi",
+      "translator": "Reynold A. Nicholson",
+      "source": "The Persian Mystics: Jalálu'd-Dín Rúmí (1912)",
+      "rights": "public-domain",
+      "moods": [
+        "love",
+        "flight",
+        "devotion"
+      ],
+      "raw": "rumi-davis.txt",
+      "start": "This is Love : to fly heavenward,",
+      "end": "Not to see what appears to one's self."
+    },
+    {
+      "slug": "success-is-counted-sweetest",
+      "title": "Success is counted sweetest",
+      "author": "emily-dickinson",
+      "year": 1890,
+      "source": "Poems (1890)",
+      "rights": "public-domain",
+      "moods": [
+        "longing",
+        "defeat",
+        "sweetness"
+      ],
+      "raw": "dickinson.txt",
+      "start": "Success is counted sweetest",
+      "occurrence": 1,
+      "end": "Break, agonized and clear!",
+      "breaks": [
+        4,
+        8
+      ]
+    },
+    {
+      "slug": "miracles",
+      "title": "Miracles",
+      "author": "walt-whitman",
+      "year": 1856,
+      "source": "Leaves of Grass",
+      "rights": "public-domain",
+      "moods": [
+        "wonder",
+        "gratitude",
+        "sea"
+      ],
+      "raw": "whitman.txt",
+      "start": "Why, who makes much of a miracle?",
+      "end": "What stranger miracles are there?",
+      "unwrap": [
+        "Or talk by day with any one I love, or sleep in the bed at night",
+        "Or the wonderfulness of the sundown, or of stars shining so quiet",
+        "The fishes that swim — the rocks — the motion of the waves — the"
+      ]
+    },
+    {
+      "slug": "inversnaid",
+      "title": "Inversnaid",
+      "author": "gerard-manley-hopkins",
+      "year": 1918,
+      "source": "Poems (1918)",
+      "rights": "public-domain",
+      "moods": [
+        "wildness",
+        "water",
+        "nature"
+      ],
+      "raw": "hopkins.txt",
+      "start": "THIS darksome burn, horseback brown,",
+      "end": "Long live the weeds and the wilderness yet.",
+      "stripLineNumbers": true,
+      "breaks": [
+        4,
+        8,
+        12
+      ]
+    },
+    {
+      "slug": "mowing",
+      "title": "Mowing",
+      "author": "robert-frost",
+      "year": 1913,
+      "source": "A Boy's Will",
+      "rights": "public-domain",
+      "moods": [
+        "summer",
+        "labor",
+        "quiet"
+      ],
+      "raw": "frost.txt",
+      "start": "There was never a sound beside the wood but one,",
+      "end": "My long scythe whispered and left the hay to make."
     }
   ]
 }
