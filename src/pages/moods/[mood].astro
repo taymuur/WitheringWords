@@ -1,0 +1,40 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const poems = await getCollection('poems');
+  const byMood = new Map<string, typeof poems>();
+  for (const poem of poems) {
+    for (const mood of poem.data.moods) {
+      byMood.set(mood, [...(byMood.get(mood) ?? []), poem]);
+    }
+  }
+  return [...byMood.entries()].map(([mood, moodPoems]) => ({
+    params: { mood },
+    props: { mood, poems: moodPoems },
+  }));
+}
+
+const { mood, poems } = Astro.props;
+const entries = await Promise.all(
+  poems.map(async (poem) => ({ poem, author: await getEntry(poem.data.author) }))
+);
+---
+
+<Base title={mood} description={`Poems for when you feel ${mood}.`}>
+  <h1>{mood}</h1>
+  <ul style="list-style: none; padding: 0;">
+    {
+      entries.map(({ poem, author }) => (
+        <li style="margin-block: 1.5rem;">
+          <a href={`/poems/${poem.id}/`}>{poem.data.title}</a>
+          <div class="byline">{author?.data.name}</div>
+        </li>
+      ))
+    }
+  </ul>
+  <p class="byline">
+    <a href="/moods/">← all moods</a>
+  </p>
+</Base>

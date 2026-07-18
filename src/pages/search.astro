@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Search" description="Search the poems.">
+  <h1>Search</h1>
+  <p class="byline">A word you remember, a feeling you're after.</p>
+  <div id="search"></div>
+  <link rel="stylesheet" href="/pagefind/pagefind-ui.css" />
+  <script is:inline data-astro-rerun src="/pagefind/pagefind-ui.js"></script>
+  <script is:inline data-astro-rerun>
+    // Pagefind indexes the built site: present in `npm run build`+preview,
+    // absent on the dev server, where we degrade to a quiet note.
+    if (window.PagefindUI) {
+      new window.PagefindUI({ element: '#search', showSubResults: false, showImages: false });
+    } else {
+      document.getElementById('search').innerHTML =
+        '<p class="byline">Search is only available on the built site.</p>';
+    }
+  </script>
+</Base>

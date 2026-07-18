@@ -7,12 +7,20 @@
       "year": 1890,
       "source": "Poems (1890)",
       "rights": "public-domain",
-      "moods": ["winter", "melancholy", "light"],
+      "moods": [
+        "winter",
+        "melancholy",
+        "light"
+      ],
       "raw": "dickinson.txt",
       "start": "There’s a certain slant of light,",
       "end": "On the look of death.",
       "occurrence": 1,
-      "breaks": [4, 8, 12]
+      "breaks": [
+        4,
+        8,
+        12
+      ]
     },
     {
       "slug": "a-clear-midnight",
@@ -21,11 +29,17 @@
       "year": 1881,
       "source": "Leaves of Grass",
       "rights": "public-domain",
-      "moods": ["night", "stillness", "rest"],
+      "moods": [
+        "night",
+        "stillness",
+        "rest"
+      ],
       "raw": "whitman.txt",
       "start": "This is thy hour O Soul, thy free flight into the wordless,",
       "end": "Night, sleep, death and the stars.",
-      "unwrap": ["Thee fully forth emerging, silent, gazing, pondering the themes thou"]
+      "unwrap": [
+        "Thee fully forth emerging, silent, gazing, pondering the themes thou"
+      ]
     },
     {
       "slug": "a-noiseless-patient-spider",
@@ -34,12 +48,20 @@
       "year": 1871,
       "source": "Leaves of Grass",
       "rights": "public-domain",
-      "moods": ["solitude", "longing", "soul"],
+      "moods": [
+        "solitude",
+        "longing",
+        "soul"
+      ],
       "raw": "whitman.txt",
       "start": "A noiseless patient spider,",
       "end": "Till the gossamer thread you fling catch somewhere, O my soul.",
-      "unwrap": ["Ceaselessly musing, venturing, throwing, seeking the spheres to"],
-      "breaks": [5]
+      "unwrap": [
+        "Ceaselessly musing, venturing, throwing, seeking the spheres to"
+      ],
+      "breaks": [
+        5
+      ]
     },
     {
       "slug": "spring-and-fall",
@@ -48,7 +70,11 @@
       "year": 1918,
       "source": "Poems (1918)",
       "rights": "public-domain",
-      "moods": ["autumn", "grief", "childhood"],
+      "moods": [
+        "autumn",
+        "grief",
+        "childhood"
+      ],
       "raw": "hopkins.txt",
       "start": "MÁRGARÉT, áre you gríeving",
       "end": "It is Margaret you mourn for.",
@@ -61,12 +87,118 @@
       "year": 1918,
       "source": "Poems (1918)",
       "rights": "public-domain",
-      "moods": ["praise", "nature", "wonder"],
+      "moods": [
+        "praise",
+        "nature",
+        "wonder"
+      ],
       "raw": "hopkins.txt",
       "start": "GLORY be to God for dappled things —",
       "end": "Praise him.",
       "stripLineNumbers": true,
-      "breaks": [6]
+      "breaks": [
+        6
+      ]
+    },
+    {
+      "slug": "because-i-could-not-stop-for-death",
+      "title": "Because I could not stop for Death",
+      "author": "emily-dickinson",
+      "year": 1890,
+      "source": "Poems (1890)",
+      "rights": "public-domain",
+      "moods": [
+        "mortality",
+        "journey",
+        "eternity"
+      ],
+      "raw": "dickinson.txt",
+      "start": "Because I could not stop for Death,",
+      "end": "Were toward eternity.",
+      "breaks": [
+        4,
+        8,
+        12,
+        16
+      ]
+    },
+    {
+      "slug": "im-nobody-who-are-you",
+      "title": "I'm nobody! Who are you?",
+      "author": "emily-dickinson",
+      "year": 1891,
+      "source": "Poems (1891)",
+      "rights": "public-domain",
+      "moods": [
+        "whimsy",
+        "solitude"
+      ],
+      "raw": "dickinson.txt",
+      "start": "I’m nobody! Who are you?",
+      "end": "To an admiring bog!",
+      "breaks": [
+        4
+      ],
+      "occurrence": 1
+    },
+    {
+      "slug": "the-pasture",
+      "title": "The Pasture",
+      "author": "robert-frost",
+      "year": 1914,
+      "source": "North of Boston",
+      "rights": "public-domain",
+      "moods": [
+        "pastoral",
+        "invitation",
+        "spring"
+      ],
+      "raw": "frost.txt",
+      "start": "I’m going out to clean the pasture spring;",
+      "end": "I sha’n’t be gone long.—You come too.",
+      "endOccurrence": 2,
+      "breaks": [
+        4
+      ]
+    },
+    {
+      "slug": "gods-grandeur",
+      "title": "God's Grandeur",
+      "author": "gerard-manley-hopkins",
+      "year": 1918,
+      "source": "Poems (1918)",
+      "rights": "public-domain",
+      "moods": [
+        "nature",
+        "wonder",
+        "faith"
+      ],
+      "raw": "hopkins.txt",
+      "start": "The world is charged with the grandeur of God,",
+      "end": "World broods with warm breast, and with, ah, bright wings!",
+      "breaks": [
+        8
+      ]
+    },
+    {
+      "slug": "the-last-invocation",
+      "title": "The Last Invocation",
+      "author": "walt-whitman",
+      "year": 1871,
+      "source": "Leaves of Grass",
+      "rights": "public-domain",
+      "moods": [
+        "tenderness",
+        "night",
+        "farewell"
+      ],
+      "raw": "whitman.txt",
+      "start": "At the last, tenderly,",
+      "end": "Strong is your hold O love.)",
+      "breaks": [
+        4,
+        7
+      ]
     },
     {
       "slug": "the-road-not-taken",
@@ -75,11 +207,19 @@
       "year": 1916,
       "source": "Mountain Interval",
       "rights": "public-domain",
-      "moods": ["choices", "autumn", "memory"],
+      "moods": [
+        "choices",
+        "autumn",
+        "memory"
+      ],
       "raw": "frost.txt",
       "start": "Two roads diverged in a yellow wood,",
       "end": "And that has made all the difference.",
-      "breaks": [5, 10, 15]
+      "breaks": [
+        5,
+        10,
+        15
+      ]
     }
   ]
 }

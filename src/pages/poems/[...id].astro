@@ -31,8 +31,20 @@ const { Content } = await render(poem);
     {
       poem.data.rights === 'excerpt' && (
         <p class="byline">
-          An excerpt. <a href={poem.data.findTheBook}>Find the book</a>
-          {poem.data.source && <> — <cite>{poem.data.source}</cite></>}.
+          This poem continues in <cite>{poem.data.source}</cite> —{' '}
+          <a href={poem.data.findTheBook}>find the book</a>.
+        </p>
+      )
+    }
+    {
+      poem.data.moods.length > 0 && (
+        <p class="byline mood-line" data-pagefind-ignore>
+          {poem.data.moods.map((mood, i) => (
+            <>
+              {i > 0 && ' · '}
+              <a href={`/moods/${mood}/`}>{mood}</a>
+            </>
+          ))}
         </p>
       )
     }
