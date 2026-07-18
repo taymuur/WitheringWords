@@ -32,7 +32,7 @@ Content is the core. Two collections defined in `src/content.config.ts` (Astro 5
 
 Pages resolve the author reference with `getEntry(poem.data.author)`. `src/pages/poems/[...id].astro` renders one poem (tagged `data-pagefind-body` — only poem pages are search-indexed) and shows the "find the book" line for excerpts. Around it: author pages (`/authors/[id]`), mood pages built from the `moods` frontmatter (`/moods/`, `/moods/[mood]`), `/today` (client-side deterministic date-hash redirect to one poem), `/search` (Pagefind UI — only works against a built site), `/rss.xml`, and a sitemap. Poem pages get prev/next nav (title order) plus left/right arrow-key turning.
 
-Styling: single global stylesheet `src/styles/global.css` — CSS custom properties define the sepia palette (with a `prefers-color-scheme: dark` variant), the system serif stack, and the `--measure` reading width. All motion sits inside `@media (prefers-reduced-motion: no-preference)`.
+Styling: single global stylesheet `src/styles/global.css` — CSS custom properties define the sepia palette (with a `prefers-color-scheme: dark` variant), the serif stack (self-hosted EB Garamond via `@fontsource`, imported in `Base.astro`), and the `--measure` reading width. All motion sits inside `@media (prefers-reduced-motion: no-preference)`.
 
 `scripts/` holds (future) extraction tooling that turns raw sources in `data/raw/` into content-collection entries; see `scripts/README.md` for the intended pipeline.
 

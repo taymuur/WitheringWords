@@ -339,6 +339,23 @@
         4,
         8
       ]
+    },
+    {
+      "slug": "the-trees",
+      "title": "The Trees",
+      "author": "philip-larkin",
+      "year": 1974,
+      "source": "High Windows (1974); collected in Collected Poems (Faber)",
+      "rights": "excerpt",
+      "findTheBook": "https://bookshop.org/search?keywords=philip%20larkin%20collected%20poems",
+      "moods": [
+        "spring",
+        "renewal",
+        "trees"
+      ],
+      "raw": "larkin.txt",
+      "start": "The trees are coming into leaf",
+      "end": "Their greenness is a kind of grief."
     }
   ]
 }
