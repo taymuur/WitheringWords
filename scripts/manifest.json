@@ -220,6 +220,125 @@
         10,
         15
       ]
+    },
+    {
+      "slug": "wild-nights-wild-nights",
+      "title": "Wild nights! Wild nights!",
+      "author": "emily-dickinson",
+      "year": 1891,
+      "source": "Poems (1891)",
+      "rights": "public-domain",
+      "moods": [
+        "passion",
+        "sea",
+        "longing"
+      ],
+      "raw": "dickinson.txt",
+      "start": "Wild nights! Wild nights!",
+      "end": "To-night in thee!",
+      "breaks": [
+        4,
+        8
+      ]
+    },
+    {
+      "slug": "o-captain-my-captain",
+      "title": "O Captain! My Captain!",
+      "author": "walt-whitman",
+      "year": 1865,
+      "source": "Leaves of Grass",
+      "rights": "public-domain",
+      "moods": [
+        "grief",
+        "elegy",
+        "sea"
+      ],
+      "raw": "whitman.txt",
+      "start": "O Captain! my Captain! our fearful trip is done,",
+      "end": "Fallen cold and dead.",
+      "endOccurrence": 2,
+      "breaks": [
+        8,
+        16
+      ]
+    },
+    {
+      "slug": "heaven-haven",
+      "title": "Heaven-Haven (A Nun Takes the Veil)",
+      "author": "gerard-manley-hopkins",
+      "year": 1918,
+      "source": "Poems (1918)",
+      "rights": "public-domain",
+      "moods": [
+        "stillness",
+        "refuge",
+        "faith"
+      ],
+      "raw": "hopkins.txt",
+      "start": "I have desired to go",
+      "end": "And out of the swing of the sea.",
+      "breaks": [
+        4
+      ]
+    },
+    {
+      "slug": "october",
+      "title": "October",
+      "author": "robert-frost",
+      "year": 1913,
+      "source": "A Boy's Will",
+      "rights": "public-domain",
+      "moods": [
+        "autumn",
+        "slowness",
+        "morning"
+      ],
+      "raw": "frost.txt",
+      "start": "O hushed October morning mild,",
+      "occurrence": 1,
+      "end": "Enchant the land with amethyst."
+    },
+    {
+      "slug": "the-birdlet",
+      "title": "The Birdlet",
+      "author": "alexander-pushkin",
+      "year": 1823,
+      "translator": "Ivan Panin",
+      "source": "Poems (trans. 1888)",
+      "rights": "public-domain",
+      "moods": [
+        "freedom",
+        "spring",
+        "exile"
+      ],
+      "raw": "pushkin.txt",
+      "start": "IN exile I sacredly observe",
+      "end": "I could of freedom make a gift?",
+      "breaks": [
+        4
+      ]
+    },
+    {
+      "slug": "the-cloud",
+      "title": "The Cloud",
+      "author": "alexander-pushkin",
+      "year": 1835,
+      "translator": "Ivan Panin",
+      "source": "Poems (trans. 1888)",
+      "rights": "public-domain",
+      "moods": [
+        "storm",
+        "calm",
+        "sky"
+      ],
+      "raw": "pushkin.txt",
+      "start": "O last cloud of the scattered storm,",
+      "occurrence": 1,
+      "end": "Forth chases thee from the quieted heavens.",
+      "breaks": [
+        4,
+        8
+      ]
     }
   ]
 }

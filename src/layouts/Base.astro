@@ -16,6 +16,11 @@ const { title, description = 'A quiet place to read poems.' } = Astro.props;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Withering Words" />
+    <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
     <title>{title} · Withering Words</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="alternate" type="application/rss+xml" title="Withering Words" href="/rss.xml" />

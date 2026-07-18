@@ -167,6 +167,26 @@ hr {
   color: var(--accent);
 }
 
+.ambience-suggest {
+  font: inherit;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+  text-decoration-color: var(--rule);
+}
+
+.ambience-suggest:hover,
+.ambience-suggest:focus-visible {
+  color: var(--accent);
+}
+
 /* Pagefind UI, tuned to the sepia palette */
 #search {
   --pagefind-ui-primary: var(--accent);
