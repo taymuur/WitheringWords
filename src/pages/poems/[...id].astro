@@ -19,9 +19,27 @@ export async function getStaticPaths() {
 const { poem, prev, next } = Astro.props;
 const author = await getEntry(poem.data.author);
 const { Content } = await render(poem);
+
+const firstLine = poem.body.trim().split('\n')[0];
+const description = `${firstLine} — ${author?.data.name ?? 'Unknown'}${poem.data.year ? `, ${poem.data.year}` : ''}`;
+
+// A poem's moods can suggest a matching ambience (started only by click).
+const AMBIENCE_FOR_MOOD: Record<string, { kind: string; label: string }> = {
+  rain: { kind: 'rain', label: 'let it rain while you read' },
+  storm: { kind: 'rain', label: 'let it rain while you read' },
+  sea: { kind: 'stream', label: 'let water run while you read' },
+  water: { kind: 'stream', label: 'let water run while you read' },
+  spring: { kind: 'birds', label: 'let birds sing while you read' },
+  pastoral: { kind: 'birds', label: 'let birds sing while you read' },
+  morning: { kind: 'birds', label: 'let birds sing while you read' },
+  nature: { kind: 'birds', label: 'let birds sing while you read' },
+};
+const suggestion = poem.data.moods
+  .map((m) => AMBIENCE_FOR_MOOD[m])
+  .find(Boolean);
 ---
 
-<Base title={poem.data.title}>
+<Base title={poem.data.title} description={description}>
   <article data-pagefind-body>
     <h1>{poem.data.title}</h1>
     <PoemMeta poem={poem} author={author} />
@@ -33,6 +51,15 @@ const { Content } = await render(poem);
         <p class="byline">
           This poem continues in <cite>{poem.data.source}</cite> —{' '}
           <a href={poem.data.findTheBook}>find the book</a>.
+        </p>
+      )
+    }
+    {
+      suggestion && (
+        <p class="mood-line" data-pagefind-ignore>
+          <button type="button" class="ambience-suggest" data-ambience={suggestion.kind}>
+            ♪ {suggestion.label}
+          </button>
         </p>
       )
     }

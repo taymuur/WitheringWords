@@ -197,6 +197,18 @@
     setTimeout(step, 250);
   }
 
+  /** Poem pages can suggest a matching ambience; starting it is one click. */
+  document.addEventListener('click', (e) => {
+    const btn = (e.target as HTMLElement).closest<HTMLElement>('.ambience-suggest');
+    if (!btn) return;
+    const kind = (btn.dataset.ambience ?? 'off') as Amb;
+    state.ambience = kind;
+    setAmbience(kind);
+    const amb = $<HTMLSelectElement>('amb-select');
+    if (amb) amb.value = kind;
+    btn.blur();
+  });
+
   /** Arrow keys turn the page (outside form fields, no modifiers). */
   document.addEventListener('keydown', (e) => {
     if (e.metaKey || e.ctrlKey || e.altKey) return;
