@@ -2,13 +2,21 @@
 import { getCollection, getEntry, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import PoemMeta from '../../components/PoemMeta.astro';
+import PoemNav from '../../components/PoemNav.astro';
 
 export async function getStaticPaths() {
-  const poems = await getCollection('poems');
-  return poems.map((poem) => ({ params: { id: poem.id }, props: { poem } }));
+  const poems = (await getCollection('poems')).sort((a, b) =>
+    a.data.title.localeCompare(b.data.title)
+  );
+  const link = (p: (typeof poems)[number] | undefined) =>
+    p ? { id: p.id, title: p.data.title } : null;
+  return poems.map((poem, i) => ({
+    params: { id: poem.id },
+    props: { poem, prev: link(poems[i - 1]), next: link(poems[i + 1]) },
+  }));
 }
 
-const { poem } = Astro.props;
+const { poem, prev, next } = Astro.props;
 const author = await getEntry(poem.data.author);
 const { Content } = await render(poem);
 ---
@@ -29,4 +37,5 @@ const { Content } = await render(poem);
       )
     }
   </article>
+  <PoemNav prev={prev} next={next} />
 </Base>

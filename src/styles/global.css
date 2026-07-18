@@ -87,6 +87,124 @@ hr {
   margin-block: 3rem;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.poem-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.95rem;
+}
+
+.poem-nav a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  max-width: 45%;
+}
+
+.poem-nav a:hover,
+.poem-nav a:focus-visible {
+  color: var(--accent);
+}
+
+.poem-nav [rel='next'] {
+  text-align: right;
+  margin-left: auto;
+}
+
+.sound-dock {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  z-index: 10;
+}
+
+.sound-dock summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--paper-deep);
+  user-select: none;
+}
+
+.sound-dock summary::-webkit-details-marker {
+  display: none;
+}
+
+.sound-dock[open] summary,
+.sound-dock summary:hover {
+  color: var(--accent);
+}
+
+.sound-dock .dock-body {
+  position: absolute;
+  right: 0;
+  bottom: 2.6rem;
+  width: 15rem;
+  display: grid;
+  gap: 0.7rem;
+  padding: 1rem;
+  border: 1px solid var(--rule);
+  border-radius: 0.5rem;
+  background: var(--paper-deep);
+}
+
+.sound-dock label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.sound-dock select {
+  font: inherit;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 0.25rem;
+  padding: 0.15rem 0.3rem;
+  max-width: 9rem;
+}
+
+.sound-dock button {
+  font: inherit;
+  color: var(--accent);
+  background: none;
+  border: 1px solid var(--rule);
+  border-radius: 0.25rem;
+  padding: 0.35rem 0.6rem;
+  cursor: pointer;
+}
+
+.sound-dock button:hover {
+  border-color: var(--accent);
+}
+
+#narration-controls {
+  display: grid;
+  gap: 0.7rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 0.7rem;
+}
+
+#narration-controls[hidden] {
+  display: none;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   main {
     animation: settle 0.8s ease-out both;
@@ -100,6 +218,18 @@ hr {
     to {
       opacity: 1;
       transform: none;
+    }
+  }
+
+  .tw-text:not(.tw-done)::after {
+    content: '▍';
+    color: var(--accent);
+    animation: caret 1s steps(1) infinite;
+  }
+
+  @keyframes caret {
+    50% {
+      opacity: 0;
     }
   }
 }
