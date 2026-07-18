@@ -37,26 +37,31 @@ export function narrating(): boolean {
 
 /**
  * Read stanzas one utterance at a time (long single utterances get cut off
- * on some engines). onDone fires after the last stanza or on cancel.
+ * on some engines). onStanza fires with the original index as each stanza
+ * begins; onDone fires after the last stanza or on cancel.
  */
 export function speak(
   stanzas: string[],
   voiceURI: string | null,
-  onDone: () => void
+  onDone: () => void,
+  onStanza?: (index: number) => void
 ): void {
   if (!('speechSynthesis' in window)) return onDone();
   stopNarration();
   const voice =
     speechSynthesis.getVoices().find((v) => v.voiceURI === voiceURI) ?? null;
   active = true;
-  const parts = stanzas.filter((s) => s.trim());
-  parts.forEach((text, i) => {
+  const parts = stanzas
+    .map((text, index) => ({ text, index }))
+    .filter((p) => p.text.trim());
+  parts.forEach(({ text, index }, i) => {
     const u = new SpeechSynthesisUtterance(text);
     if (voice) {
       u.voice = voice;
       u.lang = voice.lang;
     }
     u.rate = 0.88;
+    u.onstart = () => onStanza?.(index);
     if (i === parts.length - 1) {
       u.onend = () => {
         active = false;

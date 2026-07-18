@@ -10,12 +10,19 @@ type Ambience = 'off' | 'birds' | 'stream' | 'rain';
 let ctx: AudioContext | null = null;
 let master: GainNode | null = null;
 let noiseBuf: AudioBuffer | null = null;
+let volume = 0.6;
+
+/** Master volume, 0–1. Applies now if audio is live, or at first unlock. */
+export function setMasterVolume(v: number): void {
+  volume = Math.min(1, Math.max(0, v));
+  master?.gain.setTargetAtTime(volume, ctx!.currentTime, 0.05);
+}
 
 export function ensureAudio(): AudioContext {
   if (!ctx) {
     ctx = new AudioContext();
     master = ctx.createGain();
-    master.gain.value = 0.6;
+    master.gain.value = volume;
     master.connect(ctx.destination);
     noiseBuf = ctx.createBuffer(1, ctx.sampleRate * 2, ctx.sampleRate);
     const d = noiseBuf.getChannelData(0);

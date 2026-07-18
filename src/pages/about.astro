@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+const poems = await getCollection('poems');
+const authors = await getCollection('authors');
+---
+
+<Base title="About" description="What this place is, and how it treats poems.">
+  <h1>About this place</h1>
+  <p>
+    Withering Words is a quiet room for poems — {poems.length} of them so far,
+    by {authors.length} poets. No accounts, no feeds, no comments. You can
+    read <a href="/today/">today's poem</a>, follow a
+    <a href="/moods/">mood</a>, <a href="/wander/">wander</a> at random, or
+    <a href="/search/">search</a> for a line you half-remember.
+  </p>
+  <hr />
+  <h2>The sound</h2>
+  <p>
+    Everything you can hear — the typewriter, the page turns, the birds, the
+    stream, the rain — is synthesized in your browser while you listen.
+    No recordings, nothing downloaded, nothing plays until you ask. The
+    read-aloud voices are your own device's. It all lives behind the small
+    ♪ in the corner.
+  </p>
+  <h2>The rights</h2>
+  <p>
+    Poets in the public domain appear in full. Poets still in copyright
+    appear only in short excerpts — a few lines, always credited, always
+    with a pointer to the book. Every poem's text is taken verbatim from a
+    printed source, never from memory. Where a poem is translated, the
+    translator is named; we use only translations old enough to belong to
+    everyone.
+  </p>
+  <h2>The type</h2>
+  <p>
+    Set in EB Garamond on unbleached paper colors, warm by day and dim by
+    night, following your system's preference. Motion and sound respect
+    your accessibility settings.
+  </p>
+  <p class="byline">Read slowly. Come back tomorrow.</p>
+</Base>
