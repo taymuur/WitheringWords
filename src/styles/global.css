@@ -78,6 +78,26 @@ a:hover {
   margin-block: 2.5rem;
 }
 
+/* While narration reads, the current stanza holds the light. */
+.poem-body.narrating p {
+  opacity: 0.4;
+}
+
+.poem-body.narrating p.now {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .poem-body p {
+    transition: opacity 0.7s ease;
+  }
+}
+
+.sound-dock input[type='range'] {
+  width: 7rem;
+  accent-color: var(--accent);
+}
+
 .byline {
   color: var(--ink-soft);
   font-style: italic;

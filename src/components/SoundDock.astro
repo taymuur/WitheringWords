@@ -22,6 +22,10 @@
       <input type="checkbox" id="fx-toggle" />
       typing &amp; page sounds
     </label>
+    <label>
+      volume
+      <input type="range" id="vol-slider" min="0" max="1" step="0.05" />
+    </label>
     <div id="narration-controls" hidden>
       <label>
         voice
@@ -39,6 +43,7 @@
     typeClick,
     pageTurn,
     setAmbience,
+    setMasterVolume,
   } from '../lib/audio';
   import {
     classify,
@@ -69,6 +74,13 @@
     },
     set voice(v: string | null) {
       if (v) localStorage.setItem('ww:voice', v);
+    },
+    get volume(): number {
+      const v = parseFloat(localStorage.getItem('ww:volume') ?? '');
+      return Number.isFinite(v) ? v : 0.6;
+    },
+    set volume(v: number) {
+      localStorage.setItem('ww:volume', String(v));
     },
   };
 
@@ -109,26 +121,47 @@
     });
   }
 
-  function poemStanzas(): string[] {
+  /**
+   * Stanza texts come from the rendered <p> elements, so highlight indexes
+   * align with the DOM by construction. Entries 0–1 are title and byline.
+   */
+  function poemStanzas(): { texts: string[]; paragraphs: HTMLElement[] } {
     const title = document.querySelector('main h1')?.textContent?.trim() ?? '';
     const byline =
       document.querySelector('.byline')?.textContent?.split('·')[0]?.trim() ?? '';
-    const body =
-      (document.querySelector('.poem-body') as HTMLElement | null)?.innerText ??
-      '';
-    return [title, byline && `by ${byline}`, ...body.split(/\n\s*\n/)];
+    const paragraphs = [
+      ...document.querySelectorAll<HTMLElement>('.poem-body p'),
+    ];
+    return {
+      texts: [title, byline && `by ${byline}`, ...paragraphs.map((p) => p.innerText)],
+      paragraphs,
+    };
+  }
+
+  function clearHighlight(): void {
+    const body = document.querySelector('.poem-body');
+    body?.classList.remove('narrating');
+    body?.querySelectorAll('.now').forEach((p) => p.classList.remove('now'));
   }
 
   function initDock(): void {
     const amb = $<HTMLSelectElement>('amb-select');
     const fx = $<HTMLInputElement>('fx-toggle');
+    const vol = $<HTMLInputElement>('vol-slider');
     const voiceSelect = $<HTMLSelectElement>('voice-select');
     const narrateBtn = $<HTMLButtonElement>('narrate-btn');
     const narration = $('narration-controls');
-    if (!amb || !fx || !voiceSelect || !narrateBtn || !narration) return;
+    if (!amb || !fx || !vol || !voiceSelect || !narrateBtn || !narration) return;
 
     amb.value = state.ambience;
     fx.checked = state.fx;
+    vol.value = String(state.volume);
+    setMasterVolume(state.volume);
+    vol.oninput = () => {
+      state.volume = parseFloat(vol.value);
+      ensureAudio();
+      setMasterVolume(state.volume);
+    };
 
     amb.onchange = () => {
       state.ambience = amb.value as Amb;
@@ -151,13 +184,26 @@
       narrateBtn.onclick = () => {
         if (narrating()) {
           stopNarration();
+          clearHighlight();
           narrateBtn.textContent = 'read this poem aloud';
           return;
         }
         narrateBtn.textContent = 'stop reading';
-        speak(poemStanzas(), voiceSelect.value || state.voice, () => {
-          narrateBtn.textContent = 'read this poem aloud';
-        });
+        const { texts, paragraphs } = poemStanzas();
+        document.querySelector('.poem-body')?.classList.add('narrating');
+        speak(
+          texts,
+          voiceSelect.value || state.voice,
+          () => {
+            clearHighlight();
+            narrateBtn.textContent = 'read this poem aloud';
+          },
+          (index) => {
+            paragraphs.forEach((p, i) =>
+              p.classList.toggle('now', i === index - 2)
+            );
+          }
+        );
       };
     } else {
       narration.hidden = true;
@@ -226,7 +272,10 @@
     typewriter();
   });
 
-  document.addEventListener('astro:before-swap', () => stopNarration());
+  document.addEventListener('astro:before-swap', () => {
+    stopNarration();
+    clearHighlight();
+  });
 
   document.addEventListener('astro:after-swap', () => {
     if (state.fx && audioRunning()) pageTurn();
