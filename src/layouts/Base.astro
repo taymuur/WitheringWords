@@ -18,11 +18,17 @@ const { title, description = 'A quiet place to read poems.' } = Astro.props;
     <meta name="description" content={description} />
     <title>{title} · Withering Words</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" title="Withering Words" href="/rss.xml" />
     <ClientRouter />
   </head>
   <body>
-    <header style="text-align: center; padding-block: 2.5rem 0;">
-      <a href="/" style="text-decoration: none; color: var(--ink-soft); letter-spacing: 0.12em; font-variant: small-caps;">withering words</a>
+    <header class="site-header">
+      <a class="wordmark" href="/">withering words</a>
+      <nav aria-label="site">
+        <a href="/">poems</a>
+        <a href="/moods/">moods</a>
+        <a href="/search/">search</a>
+      </nav>
     </header>
     <main>
       <slot />

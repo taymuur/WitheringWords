@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+const poems = (await getCollection('poems')).sort((a, b) =>
+  a.data.title.localeCompare(b.data.title)
+);
+const ids = poems.map((p) => p.id);
+---
+
+<Base title="Today's poem" description="One poem, chosen anew each day.">
+  <h1>Today's poem</h1>
+  <noscript>
+    <p>Choosing needs a little JavaScript. <a href="/">Browse all poems instead.</a></p>
+  </noscript>
+  <p class="byline" id="today-fallback" hidden>
+    <a href="/">Browse all poems instead.</a>
+  </p>
+  <script is:inline data-astro-rerun define:vars={{ ids }}>
+    // Same poem for everyone all day, a different one tomorrow.
+    const now = new Date();
+    const day = Math.floor(
+      (now - new Date(now.getFullYear(), 0, 0)) / 86400000
+    );
+    const seed = now.getFullYear() * 366 + day;
+    location.replace(`/poems/${ids[seed % ids.length]}/`);
+  </script>
+</Base>

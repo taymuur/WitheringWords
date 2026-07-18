@@ -10,7 +10,13 @@ const { poem, author } = Astro.props;
 ---
 
 <p class="byline">
-  {author?.data.name}
+  {
+    author ? (
+      <a href={`/authors/${author.id}/`}>{author.data.name}</a>
+    ) : (
+      'Unknown'
+    )
+  }
   {poem.data.year && <> · {poem.data.year}</>}
   {poem.data.translator && <> · translated by {poem.data.translator}</>}
 </p>

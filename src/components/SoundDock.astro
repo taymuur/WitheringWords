@@ -197,6 +197,18 @@
     setTimeout(step, 250);
   }
 
+  /** Arrow keys turn the page (outside form fields, no modifiers). */
+  document.addEventListener('keydown', (e) => {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    const t = e.target as HTMLElement;
+    if (t.closest('input, select, textarea, button, [contenteditable]')) return;
+    if (e.key === 'ArrowLeft') {
+      document.querySelector<HTMLAnchorElement>('.poem-nav a[rel="prev"]')?.click();
+    } else if (e.key === 'ArrowRight') {
+      document.querySelector<HTMLAnchorElement>('.poem-nav a[rel="next"]')?.click();
+    }
+  });
+
   document.addEventListener('astro:page-load', () => {
     initDock();
     typewriter();

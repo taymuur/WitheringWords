@@ -2,25 +2,44 @@
 import { getCollection, getEntry } from 'astro:content';
 import Base from '../layouts/Base.astro';
 
-const poems = await getCollection('poems');
+const poems = (await getCollection('poems')).sort((a, b) =>
+  a.data.title.localeCompare(b.data.title)
+);
 const entries = await Promise.all(
   poems.map(async (poem) => ({
     poem,
     author: await getEntry(poem.data.author),
   }))
 );
+const byAuthor = new Map<string, typeof entries>();
+for (const e of entries) {
+  const name = e.author?.data.name ?? 'Unknown';
+  byAuthor.set(name, [...(byAuthor.get(name) ?? []), e]);
+}
+const authors = [...byAuthor.entries()].sort(([a], [b]) => a.localeCompare(b));
 ---
 
 <Base title="Poems">
   <h1>Poems</h1>
-  <ul style="list-style: none; padding: 0;">
-    {
-      entries.map(({ poem, author }) => (
-        <li style="margin-block: 1.5rem;">
-          <a href={`/poems/${poem.id}/`}>{poem.data.title}</a>
-          <div class="byline">{author?.data.name}</div>
-        </li>
-      ))
-    }
-  </ul>
+  <p class="byline">
+    Or let the day decide: <a href="/today/">today's poem</a> ·
+    wander by <a href="/moods/">mood</a>
+  </p>
+  {
+    authors.map(([name, authorEntries]) => (
+      <section class="author-group">
+        <h2>
+          <a href={`/authors/${authorEntries[0].author?.id}/`}>{name}</a>
+        </h2>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          {authorEntries.map(({ poem }) => (
+            <li style="margin-block: 0.9rem;">
+              <a href={`/poems/${poem.id}/`}>{poem.data.title}</a>
+              {poem.data.year && <span class="byline"> · {poem.data.year}</span>}
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))
+  }
 </Base>

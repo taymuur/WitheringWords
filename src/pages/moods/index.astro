@@ -1,0 +1,27 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+const poems = await getCollection('poems');
+const counts = new Map<string, number>();
+for (const poem of poems) {
+  for (const mood of poem.data.moods) {
+    counts.set(mood, (counts.get(mood) ?? 0) + 1);
+  }
+}
+const moods = [...counts.keys()].sort();
+---
+
+<Base title="Moods" description="Wander the poems by feeling.">
+  <h1>Tonight I feel…</h1>
+  <p class="byline">Choose a word. It will lead you somewhere quiet.</p>
+  <ul class="mood-cloud">
+    {
+      moods.map((mood) => (
+        <li>
+          <a href={`/moods/${mood}/`}>{mood}</a>
+        </li>
+      ))
+    }
+  </ul>
+</Base>

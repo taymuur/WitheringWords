@@ -1,0 +1,41 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const authors = await getCollection('authors');
+  const poems = await getCollection('poems');
+  return authors.map((author) => ({
+    params: { id: author.id },
+    props: {
+      author,
+      poems: poems
+        .filter((p) => p.data.author.id === author.id)
+        .sort((a, b) => a.data.title.localeCompare(b.data.title)),
+    },
+  }));
+}
+
+const { author, poems } = Astro.props;
+const { name, born, died, bio, publicDomain } = author.data;
+---
+
+<Base title={name} description={bio}>
+  <h1>{name}</h1>
+  <p class="byline">
+    {born}–{died}
+    {!publicDomain && <> · later work in copyright; excerpts only</>}
+  </p>
+  {bio && <p>{bio}</p>}
+  <hr />
+  <ul style="list-style: none; padding: 0;">
+    {
+      poems.map((poem) => (
+        <li style="margin-block: 1.5rem;">
+          <a href={`/poems/${poem.id}/`}>{poem.data.title}</a>
+          {poem.data.year && <span class="byline"> · {poem.data.year}</span>}
+        </li>
+      ))
+    }
+  </ul>
+</Base>

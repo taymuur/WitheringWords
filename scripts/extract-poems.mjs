@@ -44,8 +44,10 @@ for (const poem of manifest.poems) {
     );
   }
   const start = starts[nth - 1];
-  const end = ends.find((i) => i >= start);
-  if (end === undefined) throw new Error(`${poem.slug}: end line appears only before start`);
+  // `endOccurrence` (1-based, among matches at/after start) covers poems
+  // whose closing line is a refrain repeated mid-poem.
+  const end = ends.filter((i) => i >= start)[(poem.endOccurrence ?? 1) - 1];
+  if (end === undefined) throw new Error(`${poem.slug}: end line not found after start`);
 
   // The flattened epubs put a blank line after every verse line and lose
   // stanza breaks, so: drop blanks, then re-apply structure from the manifest.

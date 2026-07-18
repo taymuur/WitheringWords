@@ -87,6 +87,112 @@ hr {
   margin-block: 3rem;
 }
 
+.site-header {
+  text-align: center;
+  padding-block: 2.5rem 0;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.wordmark {
+  text-decoration: none;
+  color: var(--ink-soft);
+  letter-spacing: 0.12em;
+  font-variant: small-caps;
+}
+
+.site-header nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.4rem;
+  font-size: 0.85rem;
+}
+
+.site-header nav a {
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+
+.site-header nav a:hover,
+.site-header nav a:focus-visible {
+  color: var(--accent);
+}
+
+.author-group {
+  margin-block: 2.5rem;
+}
+
+.author-group h2 {
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+}
+
+.author-group h2 a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+}
+
+.author-group h2 a:hover,
+.author-group h2 a:focus-visible {
+  color: var(--accent);
+}
+
+.mood-cloud {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.6rem;
+  margin-top: 2.5rem;
+}
+
+.mood-cloud a {
+  text-decoration: none;
+  font-size: 1.15rem;
+}
+
+.mood-line {
+  margin-top: 2.5rem;
+  font-size: 0.85rem;
+}
+
+.mood-line a {
+  color: var(--ink-soft);
+}
+
+.mood-line a:hover,
+.mood-line a:focus-visible {
+  color: var(--accent);
+}
+
+/* Pagefind UI, tuned to the sepia palette */
+#search {
+  --pagefind-ui-primary: var(--accent);
+  --pagefind-ui-text: var(--ink);
+  --pagefind-ui-background: var(--paper);
+  --pagefind-ui-border: var(--rule);
+  --pagefind-ui-tag: var(--paper-deep);
+  --pagefind-ui-font: var(--serif);
+  margin-top: 2rem;
+}
+
+@media print {
+  .site-header nav,
+  .sound-dock,
+  .poem-nav,
+  .mood-line,
+  footer {
+    display: none !important;
+  }
+
+  html {
+    background: white;
+    color: black;
+  }
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
