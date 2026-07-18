@@ -1,0 +1,85 @@
+{
+  "poems": [
+    {
+      "slug": "theres-a-certain-slant-of-light",
+      "title": "There's a certain slant of light",
+      "author": "emily-dickinson",
+      "year": 1890,
+      "source": "Poems (1890)",
+      "rights": "public-domain",
+      "moods": ["winter", "melancholy", "light"],
+      "raw": "dickinson.txt",
+      "start": "There’s a certain slant of light,",
+      "end": "On the look of death.",
+      "occurrence": 1,
+      "breaks": [4, 8, 12]
+    },
+    {
+      "slug": "a-clear-midnight",
+      "title": "A Clear Midnight",
+      "author": "walt-whitman",
+      "year": 1881,
+      "source": "Leaves of Grass",
+      "rights": "public-domain",
+      "moods": ["night", "stillness", "rest"],
+      "raw": "whitman.txt",
+      "start": "This is thy hour O Soul, thy free flight into the wordless,",
+      "end": "Night, sleep, death and the stars.",
+      "unwrap": ["Thee fully forth emerging, silent, gazing, pondering the themes thou"]
+    },
+    {
+      "slug": "a-noiseless-patient-spider",
+      "title": "A Noiseless Patient Spider",
+      "author": "walt-whitman",
+      "year": 1871,
+      "source": "Leaves of Grass",
+      "rights": "public-domain",
+      "moods": ["solitude", "longing", "soul"],
+      "raw": "whitman.txt",
+      "start": "A noiseless patient spider,",
+      "end": "Till the gossamer thread you fling catch somewhere, O my soul.",
+      "unwrap": ["Ceaselessly musing, venturing, throwing, seeking the spheres to"],
+      "breaks": [5]
+    },
+    {
+      "slug": "spring-and-fall",
+      "title": "Spring and Fall",
+      "author": "gerard-manley-hopkins",
+      "year": 1918,
+      "source": "Poems (1918)",
+      "rights": "public-domain",
+      "moods": ["autumn", "grief", "childhood"],
+      "raw": "hopkins.txt",
+      "start": "MÁRGARÉT, áre you gríeving",
+      "end": "It is Margaret you mourn for.",
+      "stripLineNumbers": true
+    },
+    {
+      "slug": "pied-beauty",
+      "title": "Pied Beauty",
+      "author": "gerard-manley-hopkins",
+      "year": 1918,
+      "source": "Poems (1918)",
+      "rights": "public-domain",
+      "moods": ["praise", "nature", "wonder"],
+      "raw": "hopkins.txt",
+      "start": "GLORY be to God for dappled things —",
+      "end": "Praise him.",
+      "stripLineNumbers": true,
+      "breaks": [6]
+    },
+    {
+      "slug": "the-road-not-taken",
+      "title": "The Road Not Taken",
+      "author": "robert-frost",
+      "year": 1916,
+      "source": "Mountain Interval",
+      "rights": "public-domain",
+      "moods": ["choices", "autumn", "memory"],
+      "raw": "frost.txt",
+      "start": "Two roads diverged in a yellow wood,",
+      "end": "And that has made all the difference.",
+      "breaks": [5, 10, 15]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+---
+title: "There's a certain slant of light"
+author: emily-dickinson
+year: 1890
+source: "Poems (1890)"
+rights: public-domain
+moods:
+  - winter
+  - melancholy
+  - light
+---
+There’s a certain slant of light,
+On winter afternoons,
+That oppresses, like the weight
+Of cathedral tunes.
+
+Heavenly hurt it gives us;
+We can find no scar,
+But internal difference
+Where the meanings are.
+
+None may teach it anything,
+‘ T is the seal, despair, —
+An imperial affliction
+Sent us of the air.
+
+When it comes, the landscape listens,
+Shadows hold their breath;
+When it goes, ‘t is like the distance
+On the look of death.
