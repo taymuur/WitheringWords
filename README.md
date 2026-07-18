@@ -38,3 +38,15 @@ npm run preview    # serve the built site
 
 To add poems, see `scripts/README.md` — poems are sliced verbatim from
 raw sources via a curated manifest, never transcribed from memory.
+
+## Deploy (Cloudflare Pages)
+
+Connect the repo in the Cloudflare dashboard (Workers & Pages → Create →
+Pages → import this repository) with:
+
+- Build command: `npm run build`
+- Output directory: `dist`
+
+Then set `site` in `astro.config.mjs` to the assigned domain so canonical
+URLs, the sitemap, RSS, and OpenGraph cards point at the real address.
+Every push to `main` deploys; CI already builds each PR.

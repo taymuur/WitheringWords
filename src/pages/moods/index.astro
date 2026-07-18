@@ -9,7 +9,7 @@ for (const poem of poems) {
     counts.set(mood, (counts.get(mood) ?? 0) + 1);
   }
 }
-const moods = [...counts.keys()].sort();
+const moods = [...counts.entries()].sort(([a], [b]) => a.localeCompare(b));
 ---
 
 <Base title="Moods" description="Wander the poems by feeling.">
@@ -17,9 +17,14 @@ const moods = [...counts.keys()].sort();
   <p class="byline">Choose a word. It will lead you somewhere quiet.</p>
   <ul class="mood-cloud">
     {
-      moods.map((mood) => (
+      moods.map(([mood, count]) => (
         <li>
-          <a href={`/moods/${mood}/`}>{mood}</a>
+          <a
+            href={`/moods/${mood}/`}
+            style={`font-size: ${Math.min(1 + count * 0.14, 1.8)}rem;`}
+          >
+            {mood}
+          </a>
         </li>
       ))
     }
