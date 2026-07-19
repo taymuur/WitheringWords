@@ -1,5 +1,9 @@
 /* Withering Words — quiet, reminiscing, unhurried. */
 
+/*
+ * Theme: follows the system by default; data-theme="light"/"dark" on <html>
+ * (set by the header toggle, persisted in ww:theme) overrides it.
+ */
 :root {
   --paper: #faf6ef;
   --paper-deep: #f3ecdf;
@@ -10,17 +14,29 @@
   --measure: 34rem;
   --serif: 'EB Garamond', 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia,
     serif;
+  color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme='light']) {
     --paper: #211d17;
     --paper-deep: #2a251d;
     --ink: #e8e0d1;
     --ink-soft: #a89a84;
     --accent: #c98d64;
     --rule: #3a342a;
+    color-scheme: dark;
   }
+}
+
+:root[data-theme='dark'] {
+  --paper: #211d17;
+  --paper-deep: #2a251d;
+  --ink: #e8e0d1;
+  --ink-soft: #a89a84;
+  --accent: #c98d64;
+  --rule: #3a342a;
+  color-scheme: dark;
 }
 
 * {
@@ -153,6 +169,22 @@ hr {
 
 .site-header nav a:hover,
 .site-header nav a:focus-visible {
+  color: var(--accent);
+}
+
+#theme-toggle {
+  font: inherit;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  line-height: 1;
+}
+
+#theme-toggle:hover,
+#theme-toggle:focus-visible {
   color: var(--accent);
 }
 

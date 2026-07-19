@@ -36,6 +36,14 @@ const { title, description = 'A quiet place to read poems.', ogImage } = Astro.p
       )
     }
     <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <script is:inline data-astro-rerun>
+      // Before first paint: apply the reader's saved theme, if any.
+      // (IIFE: rerun scripts share the global scope across swaps.)
+      (() => {
+        const t = localStorage.getItem('ww:theme');
+        if (t) document.documentElement.dataset.theme = t;
+      })();
+    </script>
     <title>{title} · Withering Words</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="alternate" type="application/rss+xml" title="Withering Words" href="/rss.xml" />
@@ -50,6 +58,7 @@ const { title, description = 'A quiet place to read poems.', ogImage } = Astro.p
         <a href="/moods/">moods</a>
         <a href="/wander/">wander</a>
         <a href="/search/">search</a>
+        <button type="button" id="theme-toggle" aria-label="switch theme">☾</button>
       </nav>
     </header>
     <main id="main">
