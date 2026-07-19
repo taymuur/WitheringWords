@@ -9,6 +9,10 @@ import { Resvg } from '@resvg/resvg-js';
  * Rendered with the same EB Garamond the site reads in.
  */
 
+// Must always render at build time — the native resvg/satori toolchain
+// cannot run (or bundle) inside an edge runtime.
+export const prerender = true;
+
 const font = (file: string) =>
   readFileSync(`node_modules/@fontsource/eb-garamond/files/${file}`);
 
