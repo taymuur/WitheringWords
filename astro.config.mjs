@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  // Set to the production URL once the Cloudflare Pages domain exists.
-  site: 'https://withering-words.pages.dev',
+  // Live Workers deployment; update if the workers.dev subdomain changes.
+  site: 'https://witheringwords.taimurshahzad69.workers.dev',
   integrations: [sitemap()],
 });
