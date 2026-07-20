@@ -493,6 +493,106 @@
         12,
         16
       ]
+    },
+    {
+      "slug": "there-is-no-frigate-like-a-book",
+      "title": "There is no frigate like a book",
+      "author": "emily-dickinson",
+      "year": 1896,
+      "source": "Poems (1896)",
+      "rights": "public-domain",
+      "moods": [
+        "books",
+        "journey",
+        "wonder"
+      ],
+      "raw": "dickinson.txt",
+      "start": "There is no frigate like a book",
+      "occurrence": 1,
+      "end": "That bears a human soul!",
+      "breaks": [
+        4
+      ]
+    },
+    {
+      "slug": "i-taste-a-liquor-never-brewed",
+      "title": "I taste a liquor never brewed",
+      "author": "emily-dickinson",
+      "year": 1890,
+      "source": "Poems (1890)",
+      "rights": "public-domain",
+      "moods": [
+        "summer",
+        "joy",
+        "intoxication"
+      ],
+      "raw": "dickinson.txt",
+      "start": "I taste a liquor never brewed,",
+      "end": "Leaning against the sun!",
+      "breaks": [
+        4,
+        8,
+        12
+      ]
+    },
+    {
+      "slug": "the-voice-of-the-rain",
+      "title": "The Voice of the Rain",
+      "author": "walt-whitman",
+      "year": 1885,
+      "source": "Leaves of Grass",
+      "rights": "public-domain",
+      "moods": [
+        "rain",
+        "earth",
+        "song"
+      ],
+      "raw": "whitman.txt",
+      "start": "And who art thou? said I to the soft-falling shower,",
+      "end": "Reck’d or unreck’d, duly with love returns.)",
+      "unwrap": [
+        "Upward to heaven, whence, vaguely form’d, altogether changed, and",
+        "And forever, by day and night, I give back life to my own origin,"
+      ]
+    },
+    {
+      "slug": "a-time-to-talk",
+      "title": "A Time to Talk",
+      "author": "robert-frost",
+      "year": 1916,
+      "source": "Mountain Interval",
+      "rights": "public-domain",
+      "moods": [
+        "friendship",
+        "pause",
+        "pastoral"
+      ],
+      "raw": "frost.txt",
+      "start": "When a friend calls to me from the road",
+      "end": "For a friendly visit."
+    },
+    {
+      "slug": "a-winter-morning",
+      "title": "A Winter Morning",
+      "author": "alexander-pushkin",
+      "year": 1829,
+      "translator": "Charles Edward Turner",
+      "source": "Translations from Poushkin (1899)",
+      "rights": "public-domain",
+      "moods": [
+        "winter",
+        "morning",
+        "love"
+      ],
+      "raw": "pushkin.txt",
+      "start": "The frost and sun; a glorious day!",
+      "end": "Along the shore so dear to me.",
+      "breaks": [
+        6,
+        12,
+        18,
+        24
+      ]
     }
   ]
 }

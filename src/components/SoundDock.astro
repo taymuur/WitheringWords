@@ -48,6 +48,7 @@
   } from '../lib/audio';
   import {
     classify,
+    scoreVoice,
     voicesReady,
     speak,
     stopNarration,
@@ -100,6 +101,10 @@
         other: [],
       };
       for (const v of voices) groups[classify(v)].push(v);
+      // Best voices first — platforms bury their natural/neural ones.
+      for (const g of Object.values(groups)) {
+        g.sort((a, b) => scoreVoice(b) - scoreVoice(a));
+      }
       select.innerHTML = '';
       for (const name of ['female', 'male', 'other'] as const) {
         if (!groups[name].length) continue;
@@ -108,7 +113,8 @@
         for (const v of groups[name]) {
           const opt = document.createElement('option');
           opt.value = v.voiceURI;
-          opt.textContent = v.name.replace(/\s*\(.*\)$/, '');
+          opt.textContent =
+            v.name.replace(/\s*\(.*\)$/, '') + (scoreVoice(v) >= 4 ? ' ✦' : '');
           og.append(opt);
         }
         select.append(og);
