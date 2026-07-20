@@ -1,0 +1,30 @@
+---
+title: "I taste a liquor never brewed"
+author: emily-dickinson
+year: 1890
+source: "Poems (1890)"
+rights: public-domain
+moods:
+  - summer
+  - joy
+  - intoxication
+---
+I taste a liquor never brewed,
+From tankards scooped in pearl;
+Not all the vats upon the Rhine
+Yield such an alcohol!
+
+Inebriate of air am I,
+And debauchee of dew,
+Reeling, through endless summer days,
+From inns of molten blue.
+
+When landlords turn the drunken bee
+Out of the foxglove’s door,
+When butterflies renounce their drams,
+I shall but drink the more!
+
+Till seraphs swing their snowy hats,
+And saints to windows run,
+To see the little tippler
+Leaning against the sun!
