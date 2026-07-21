@@ -660,6 +660,240 @@
         "15. I follow the religion of Love : whatever way Love's"
       ],
       "stripVerseNumbers": true
+    },
+    {
+      "slug": "a-narrow-fellow-in-the-grass",
+      "title": "A narrow fellow in the grass",
+      "author": "emily-dickinson",
+      "year": 1891,
+      "source": "Poems (1891)",
+      "rights": "public-domain",
+      "moods": [
+        "nature",
+        "unease",
+        "childhood"
+      ],
+      "raw": "dickinson.txt",
+      "start": "A narrow fellow in the grass",
+      "occurrence": 1,
+      "end": "And zero at the bone.",
+      "breaks": [
+        4,
+        8,
+        12,
+        16,
+        20
+      ]
+    },
+    {
+      "slug": "the-morns-are-meeker-than-they-were",
+      "title": "The morns are meeker than they were",
+      "author": "emily-dickinson",
+      "year": 1890,
+      "source": "Poems (1890)",
+      "rights": "public-domain",
+      "moods": [
+        "autumn",
+        "gentleness"
+      ],
+      "raw": "dickinson.txt",
+      "start": "The morns are meeker than they were,",
+      "end": "I’ll put a trinket on.",
+      "breaks": [
+        4
+      ]
+    },
+    {
+      "slug": "youth-day-old-age-and-night",
+      "title": "Youth, Day, Old Age and Night",
+      "author": "walt-whitman",
+      "year": 1881,
+      "source": "Leaves of Grass",
+      "rights": "public-domain",
+      "moods": [
+        "age",
+        "night",
+        "acceptance"
+      ],
+      "raw": "whitman.txt",
+      "start": "Youth, large, lusty, loving — youth full of grace, force, fascination,",
+      "end": "restoring darkness.",
+      "unwrap": [
+        "Do you know that Old Age may come after you with equal grace,",
+        "Day full-blown and splendid-day of the immense sun, action,",
+        "The Night follows close with millions of suns, and sleep and"
+      ]
+    },
+    {
+      "slug": "on-the-beach-at-night-alone",
+      "title": "On the Beach at Night Alone",
+      "author": "walt-whitman",
+      "year": 1867,
+      "source": "Leaves of Grass",
+      "rights": "public-domain",
+      "moods": [
+        "night",
+        "sea",
+        "unity"
+      ],
+      "raw": "whitman.txt",
+      "start": "On the beach at night alone,",
+      "end": "And shall forever span them and compactly hold and enclose them.",
+      "unwrap": [
+        "As I watch the bright stars shining, I think a thought of the clef",
+        "All souls, all living bodies though they be ever so different, or in"
+      ],
+      "breaks": [
+        3
+      ]
+    },
+    {
+      "slug": "peace",
+      "title": "Peace",
+      "author": "gerard-manley-hopkins",
+      "year": 1918,
+      "source": "Poems (1918)",
+      "rights": "public-domain",
+      "moods": [
+        "peace",
+        "patience",
+        "longing"
+      ],
+      "raw": "hopkins.txt",
+      "start": "WHEN will you ever, Peace, wild wooddove, shy wings shut,",
+      "end": "He comes to brood and sit.",
+      "stripLineNumbers": true,
+      "breaks": [
+        6
+      ]
+    },
+    {
+      "slug": "the-sound-of-trees",
+      "title": "The Sound of Trees",
+      "author": "robert-frost",
+      "year": 1916,
+      "source": "Mountain Interval",
+      "rights": "public-domain",
+      "moods": [
+        "trees",
+        "wind",
+        "leaving"
+      ],
+      "raw": "frost.txt",
+      "start": "I wonder about the trees.",
+      "end": "But I shall be gone."
+    },
+    {
+      "slug": "going-for-water",
+      "title": "Going for Water",
+      "author": "robert-frost",
+      "year": 1913,
+      "source": "A Boy's Will",
+      "rights": "public-domain",
+      "moods": [
+        "water",
+        "moonlight",
+        "autumn"
+      ],
+      "raw": "frost.txt",
+      "start": "The well was dry beside the door,",
+      "end": "Like pearls, and now a silver blade.",
+      "breaks": [
+        4,
+        8,
+        12,
+        16,
+        20
+      ]
+    },
+    {
+      "slug": "the-prophet",
+      "title": "The Prophet",
+      "author": "alexander-pushkin",
+      "year": 1826,
+      "translator": "Ivan Panin",
+      "source": "Poems (trans. 1888)",
+      "rights": "public-domain",
+      "moods": [
+        "vision",
+        "fire",
+        "calling"
+      ],
+      "raw": "pushkin.txt",
+      "start": "Tormented by the thirst for the Spirit,",
+      "occurrence": 1,
+      "end": "Burn with the Word the hearts of men!”"
+    },
+    {
+      "slug": "every-moment-the-voice-of-love",
+      "title": "Every Moment the Voice of Love",
+      "author": "rumi",
+      "translator": "Reynold A. Nicholson",
+      "source": "The Persian Mystics: Jalálu'd-Dín Rúmí (1912)",
+      "rights": "public-domain",
+      "moods": [
+        "love",
+        "heaven",
+        "homecoming"
+      ],
+      "raw": "rumi-davis.txt",
+      "start": "Every moment the voice of Love is coming from",
+      "end": "Thither, Sire, let us return, for that is our country.",
+      "unwrap": [
+        "Every moment the voice of Love is coming from",
+        "We are bound for heaven : who has a mind to",
+        "We have been in heaven, we have been friends"
+      ]
+    },
+    {
+      "slug": "disillusionment-of-ten-oclock",
+      "title": "Disillusionment of Ten O'Clock",
+      "author": "wallace-stevens",
+      "year": 1915,
+      "source": "Harmonium (1923)",
+      "rights": "public-domain",
+      "moods": [
+        "night",
+        "dream",
+        "strangeness"
+      ],
+      "raw": "stevens.txt",
+      "start": "The houses are haunted",
+      "occurrence": 1,
+      "end": "In red weather."
+    },
+    {
+      "slug": "danse-russe",
+      "title": "Danse Russe",
+      "author": "william-carlos-williams",
+      "year": 1917,
+      "source": "Al Que Quiere! (1917)",
+      "rights": "public-domain",
+      "moods": [
+        "solitude",
+        "dance",
+        "joy"
+      ],
+      "raw": "williams.txt",
+      "start": "If I when my wife is sleeping",
+      "occurrence": 1,
+      "end": "the happy genius of my household?"
+    },
+    {
+      "slug": "days",
+      "title": "Days",
+      "author": "philip-larkin",
+      "year": 1964,
+      "source": "The Whitsun Weddings (1964)",
+      "rights": "excerpt",
+      "findTheBook": "https://bookshop.org/search?keywords=philip%20larkin%20whitsun%20weddings",
+      "moods": [
+        "time",
+        "dwelling"
+      ],
+      "raw": "larkin.txt",
+      "start": "What are days for?",
+      "end": "Where can we live but days?"
     }
   ]
 }
