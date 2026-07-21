@@ -70,6 +70,11 @@ for (const poem of manifest.poems) {
     poemLines.splice(i, 2, `${poemLines[i]} ${poemLines[i + 1]}`);
   }
 
+  // Editions numbering verses at line start ("13. My heart has become…")
+  if (poem.stripVerseNumbers) {
+    poemLines = poemLines.map((l) => l.replace(/^\d+\.\s*/, ''));
+  }
+
   const poemLineCount = poemLines.length;
 
   // Stanza breaks (1-based line indexes to break after), lost in flattening.

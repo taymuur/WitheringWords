@@ -133,7 +133,11 @@
    * align with the DOM by construction. Entries 0–1 are title and byline.
    */
   function poemStanzas(): { texts: string[]; paragraphs: HTMLElement[] } {
-    const title = document.querySelector('main h1')?.textContent?.trim() ?? '';
+    // After the typewriter runs, the h1 holds the title twice (the
+    // visually-hidden copy plus the animated one) — read it only once.
+    const h1 = document.querySelector('main h1');
+    const title =
+      (h1?.querySelector('.visually-hidden') ?? h1)?.textContent?.trim() ?? '';
     const byline =
       document.querySelector('.byline')?.textContent?.split('·')[0]?.trim() ?? '';
     const paragraphs = [

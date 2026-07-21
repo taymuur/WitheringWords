@@ -1,0 +1,30 @@
+---
+title: "The Snow Man"
+author: wallace-stevens
+year: 1921
+source: "Harmonium (1923)"
+rights: public-domain
+moods:
+  - winter
+  - stillness
+  - listening
+---
+One must have a mind of winter
+To regard the frost and the boughs
+Of the pine-trees crusted with snow;
+
+And have been cold a long time
+To behold the junipers shagged with ice,
+The spruces rough in the distant glitter
+
+Of the January sun; and not to think
+Of any misery in the sound of the wind,
+In the sound of a few leaves,
+
+Which is the sound of the land
+Full of the same wind
+That is blowing in the same bare place
+
+For the listener, who listens in the snow,
+And, nothing himself, beholds
+Nothing that is not there and the nothing that is.

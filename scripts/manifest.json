@@ -593,6 +593,73 @@
         18,
         24
       ]
+    },
+    {
+      "slug": "the-snow-man",
+      "title": "The Snow Man",
+      "author": "wallace-stevens",
+      "year": 1921,
+      "source": "Harmonium (1923)",
+      "rights": "public-domain",
+      "moods": [
+        "winter",
+        "stillness",
+        "listening"
+      ],
+      "raw": "stevens.txt",
+      "start": "One must have a mind of winter",
+      "occurrence": 1,
+      "end": "Nothing that is not there and the nothing that is.",
+      "breaks": [
+        3,
+        6,
+        9,
+        12
+      ]
+    },
+    {
+      "slug": "the-red-wheelbarrow",
+      "title": "The Red Wheelbarrow",
+      "author": "william-carlos-williams",
+      "year": 1923,
+      "source": "Spring and All (1923)",
+      "rights": "public-domain",
+      "moods": [
+        "rain",
+        "attention",
+        "ordinary"
+      ],
+      "raw": "williams.txt",
+      "start": "so much depends",
+      "occurrence": 1,
+      "end": "chickens",
+      "breaks": [
+        2,
+        4,
+        6
+      ]
+    },
+    {
+      "slug": "my-heart-has-become-capable-of-every-form",
+      "title": "My heart has become capable of every form",
+      "author": "ibn-arabi",
+      "translator": "Reynold A. Nicholson",
+      "source": "Tarjuman al-Ashwaq, XI (1911)",
+      "rights": "public-domain",
+      "moods": [
+        "love",
+        "faith",
+        "openness"
+      ],
+      "raw": "ibn-arabi.txt",
+      "start": "13. My heart has become capable of every form : it is a",
+      "end": "camels take, that is my religion and my faith.",
+      "unwrap": [
+        "13. My heart has become capable of every form : it is a",
+        "14. And a temple for idols and the pilgrim's Ka'ba and the",
+        "15. I follow the religion of Love : whatever way Love's"
+      ],
+      "stripVerseNumbers": true
     }
   ]
 }
