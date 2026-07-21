@@ -1,0 +1,15 @@
+---
+title: "Youth, Day, Old Age and Night"
+author: walt-whitman
+year: 1881
+source: "Leaves of Grass"
+rights: public-domain
+moods:
+  - age
+  - night
+  - acceptance
+---
+Youth, large, lusty, loving — youth full of grace, force, fascination,
+Do you know that Old Age may come after you with equal grace, force, fascination?
+Day full-blown and splendid-day of the immense sun, action, ambition, laughter,
+The Night follows close with millions of suns, and sleep and restoring darkness.
