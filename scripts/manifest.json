@@ -894,6 +894,145 @@
       "raw": "larkin.txt",
       "start": "What are days for?",
       "end": "Where can we live but days?"
+    },
+    {
+      "slug": "the-brain-is-wider-than-the-sky",
+      "title": "The brain is wider than the sky",
+      "author": "emily-dickinson",
+      "year": 1896,
+      "source": "Poems (1896)",
+      "rights": "public-domain",
+      "moods": [
+        "wonder",
+        "mind",
+        "vastness"
+      ],
+      "raw": "dickinson.txt",
+      "start": "The brain is wider than the sky,",
+      "end": "As syllable from sound.",
+      "breaks": [
+        4,
+        8
+      ]
+    },
+    {
+      "slug": "the-bustle-in-a-house",
+      "title": "The Bustle in a House",
+      "author": "emily-dickinson",
+      "year": 1896,
+      "source": "Poems (1896)",
+      "rights": "public-domain",
+      "moods": [
+        "grief",
+        "mortality",
+        "love"
+      ],
+      "raw": "dickinson.txt",
+      "start": "THE bustle in a house",
+      "end": "Until eternity.",
+      "breaks": [
+        4
+      ]
+    },
+    {
+      "slug": "a-clock-stopped",
+      "title": "A clock stopped",
+      "author": "emily-dickinson",
+      "year": 1896,
+      "source": "Poems (1896)",
+      "rights": "public-domain",
+      "moods": [
+        "mortality",
+        "stillness"
+      ],
+      "raw": "dickinson.txt",
+      "start": "A clock stopped — not the mantel’s;",
+      "end": "The dial life and him.",
+      "breaks": [
+        4,
+        8,
+        12
+      ]
+    },
+    {
+      "slug": "as-kingfishers-catch-fire",
+      "title": "As kingfishers catch fire",
+      "author": "gerard-manley-hopkins",
+      "year": 1918,
+      "source": "Poems (1918)",
+      "rights": "public-domain",
+      "moods": [
+        "being",
+        "praise",
+        "selfhood"
+      ],
+      "raw": "hopkins.txt",
+      "start": "AS kingfishers catch fire, dragonflies dráw fláme;",
+      "end": "To the Father through the features of men’s faces.",
+      "stripLineNumbers": true,
+      "breaks": [
+        8
+      ]
+    },
+    {
+      "slug": "tea-at-the-palaz-of-hoon",
+      "title": "Tea at the Palaz of Hoon",
+      "author": "wallace-stevens",
+      "year": 1921,
+      "source": "Harmonium (1923)",
+      "rights": "public-domain",
+      "moods": [
+        "solitude",
+        "selfhood",
+        "descent"
+      ],
+      "raw": "stevens.txt",
+      "start": "Not less because in purple I descended",
+      "end": "And there I found myself more truly and more strange.",
+      "breaks": [
+        3,
+        6,
+        9
+      ]
+    },
+    {
+      "slug": "the-great-figure",
+      "title": "The Great Figure",
+      "author": "william-carlos-williams",
+      "year": 1921,
+      "source": "Sour Grapes (1921)",
+      "rights": "public-domain",
+      "moods": [
+        "rain",
+        "city",
+        "attention"
+      ],
+      "raw": "williams.txt",
+      "start": "Among the rain",
+      "occurrence": 1,
+      "end": "through the dark city."
+    },
+    {
+      "slug": "the-angel",
+      "title": "The Angel",
+      "author": "alexander-pushkin",
+      "year": 1827,
+      "translator": "Ivan Panin",
+      "source": "Poems (trans. 1888)",
+      "rights": "public-domain",
+      "moods": [
+        "tenderness",
+        "doubt",
+        "grace"
+      ],
+      "raw": "pushkin.txt",
+      "start": "At the gates of Eden a tender Angel",
+      "occurrence": 1,
+      "end": "Not all in the world have I scorned.",
+      "breaks": [
+        4,
+        8
+      ]
     }
   ]
 }
