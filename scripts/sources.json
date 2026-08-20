@@ -1,0 +1,54 @@
+{
+  "_comment": "Public-domain source volumes for data/raw/. Every file here is a Project Gutenberg text mirrored by GITenberg; `node scripts/fetch-sources.mjs` re-fetches them all. data/raw/ is gitignored, so this file is the record of where each poem was sliced from.",
+  "sources": [
+    {
+      "raw": "yeats-reeds.txt",
+      "repo": "GITenberg/The-Wind-Among-the-Reeds_32233",
+      "file": "32233-8.txt",
+      "encoding": "iso-8859-1",
+      "title": "The Wind Among the Reeds (1899), W. B. Yeats"
+    },
+    {
+      "raw": "yeats-coole.txt",
+      "repo": "GITenberg/The-Wild-Swans-at-Coole_32491",
+      "file": "32491.txt",
+      "title": "The Wild Swans at Coole (1919), W. B. Yeats"
+    },
+    {
+      "raw": "blake.txt",
+      "repo": "GITenberg/Songs-of-Innocence-and-Songs-of-Experience_1934",
+      "file": "1934-0.txt",
+      "title": "Songs of Innocence, and Songs of Experience, William Blake"
+    },
+    {
+      "raw": "tagore.txt",
+      "repo": "GITenberg/Gitanjali_7164",
+      "file": "7164.txt",
+      "title": "Gitanjali (1912), Rabindranath Tagore"
+    },
+    {
+      "raw": "gibran.txt",
+      "repo": "GITenberg/The-Prophet_58585",
+      "file": "58585-0.txt",
+      "title": "The Prophet (1923), Kahlil Gibran"
+    },
+    {
+      "raw": "waley-chinese.txt",
+      "repo": "GITenberg/A-Hundred-and-Seventy-Chinese-Poems_42290",
+      "file": "42290-0.txt",
+      "title": "A Hundred and Seventy Chinese Poems (1918), trans. Arthur Waley"
+    },
+    {
+      "raw": "khayyam.txt",
+      "repo": "GITenberg/The-Rubaiyat-of-Omar-Khayyam_246",
+      "file": "246.txt",
+      "title": "The Rubáiyát of Omar Khayyám, trans. Edward FitzGerald"
+    },
+    {
+      "raw": "sappho.txt",
+      "repo": "GITenberg/Sappho--A-New-Rendering_42543",
+      "file": "42543-0.txt",
+      "title": "Sappho: A New Rendering (1920), trans. H. de Vere Stacpoole"
+    }
+  ]
+}
