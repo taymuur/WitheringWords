@@ -1033,6 +1033,209 @@
         4,
         8
       ]
+    },
+    {
+      "slug": "aedh-wishes-for-the-cloths-of-heaven",
+      "title": "Aedh Wishes for the Cloths of Heaven",
+      "author": "william-butler-yeats",
+      "year": 1899,
+      "source": "The Wind Among the Reeds (1899)",
+      "rights": "public-domain",
+      "moods": [
+        "love",
+        "dreams",
+        "longing"
+      ],
+      "raw": "yeats-reeds.txt",
+      "start": "Had I the heavens' embroidered cloths,",
+      "end": "Tread softly because you tread on my dreams."
+    },
+    {
+      "slug": "the-song-of-wandering-aengus",
+      "title": "The Song of Wandering Aengus",
+      "author": "william-butler-yeats",
+      "year": 1899,
+      "source": "The Wind Among the Reeds (1899)",
+      "rights": "public-domain",
+      "moods": [
+        "longing",
+        "enchantment",
+        "wandering"
+      ],
+      "raw": "yeats-reeds.txt",
+      "start": "I went out to the hazel wood,",
+      "end": "The golden apples of the sun.",
+      "breaks": [
+        8,
+        16
+      ]
+    },
+    {
+      "slug": "the-wild-swans-at-coole",
+      "title": "The Wild Swans at Coole",
+      "author": "william-butler-yeats",
+      "year": 1919,
+      "source": "The Wild Swans at Coole (1919)",
+      "rights": "public-domain",
+      "moods": [
+        "autumn",
+        "water",
+        "age"
+      ],
+      "raw": "yeats-coole.txt",
+      "start": "The trees are in their autumn beauty,",
+      "end": "To find they have flown away?",
+      "breaks": [
+        6,
+        12,
+        18,
+        24
+      ]
+    },
+    {
+      "slug": "the-tiger",
+      "title": "The Tiger",
+      "author": "william-blake",
+      "year": 1794,
+      "source": "Songs of Innocence and of Experience",
+      "rights": "public-domain",
+      "moods": [
+        "awe",
+        "fire",
+        "making"
+      ],
+      "raw": "blake.txt",
+      "start": "Tiger, tiger, burning bright",
+      "end": "Dare frame thy fearful symmetry?",
+      "occurrence": 1,
+      "breaks": [
+        4,
+        8,
+        12,
+        16,
+        20
+      ]
+    },
+    {
+      "slug": "the-sick-rose",
+      "title": "The Sick Rose",
+      "author": "william-blake",
+      "year": 1794,
+      "source": "Songs of Innocence and of Experience",
+      "rights": "public-domain",
+      "moods": [
+        "decay",
+        "night",
+        "love"
+      ],
+      "raw": "blake.txt",
+      "start": "O rose, thou art sick!",
+      "end": "Does thy life destroy.",
+      "breaks": [
+        4
+      ]
+    },
+    {
+      "slug": "where-the-mind-is-without-fear",
+      "title": "Where the mind is without fear",
+      "author": "rabindranath-tagore",
+      "year": 1912,
+      "source": "Gitanjali (1912)",
+      "rights": "public-domain",
+      "moods": [
+        "hope",
+        "freedom",
+        "prayer"
+      ],
+      "raw": "tagore.txt",
+      "start": "Where the mind is without fear and the head is held high;",
+      "end": "Into that heaven of freedom, my Father, let my country awake.",
+      "paragraphs": true
+    },
+    {
+      "slug": "on-children",
+      "title": "On Children",
+      "author": "kahlil-gibran",
+      "year": 1923,
+      "source": "The Prophet (1923)",
+      "rights": "public-domain",
+      "moods": [
+        "children",
+        "love",
+        "letting go"
+      ],
+      "raw": "gibran.txt",
+      "start": "Your children are not your children.",
+      "end": "stable.",
+      "paragraphs": true,
+      "stripPageMarkers": true
+    },
+    {
+      "slug": "the-red-cockatoo",
+      "title": "The Red Cockatoo",
+      "author": "po-chu-i",
+      "translator": "Arthur Waley",
+      "source": "A Hundred and Seventy Chinese Poems (1918)",
+      "rights": "public-domain",
+      "moods": [
+        "captivity",
+        "irony",
+        "birds"
+      ],
+      "raw": "waley-chinese.txt",
+      "start": "Sent as a present from Annam--",
+      "end": "And shut it up inside."
+    },
+    {
+      "slug": "the-moon-has-set",
+      "title": "The Moon Has Set",
+      "author": "sappho",
+      "translator": "H. de Vere Stacpoole",
+      "source": "Sappho: A New Rendering (1920)",
+      "rights": "public-domain",
+      "moods": [
+        "night",
+        "solitude",
+        "longing"
+      ],
+      "raw": "sappho.txt",
+      "start": "The moon has set beyond the seas,",
+      "end": "Time passes--yet I lie alone."
+    },
+    {
+      "slug": "a-book-of-verses-underneath-the-bough",
+      "title": "A Book of Verses underneath the Bough",
+      "author": "omar-khayyam",
+      "year": 1889,
+      "translator": "Edward FitzGerald",
+      "source": "The Rubáiyát of Omar Khayyám (fifth edition, 1889)",
+      "rights": "public-domain",
+      "moods": [
+        "love",
+        "contentment",
+        "wilderness"
+      ],
+      "raw": "khayyam.txt",
+      "start": "A Book of Verses underneath the Bough,",
+      "end": "Oh, Wilderness were Paradise enow!"
+    },
+    {
+      "slug": "the-moving-finger-writes",
+      "title": "The Moving Finger writes",
+      "author": "omar-khayyam",
+      "year": 1889,
+      "translator": "Edward FitzGerald",
+      "source": "The Rubáiyát of Omar Khayyám (fifth edition, 1889)",
+      "rights": "public-domain",
+      "moods": [
+        "time",
+        "fate",
+        "regret"
+      ],
+      "raw": "khayyam.txt",
+      "start": "The Moving Finger writes; and, having writ,",
+      "end": "Nor all your Tears wash out a Word of it.",
+      "occurrence": 2
     }
   ]
 }

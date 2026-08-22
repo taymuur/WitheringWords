@@ -56,6 +56,31 @@ for (const poem of manifest.poems) {
     .map((l) => l.trim())
     .filter(Boolean);
 
+  // Prose-poetry editions (Gitanjali, The Prophet) hard-wrap each verse to
+  // the page and separate verses with blank lines. There the blank lines
+  // are the structure: rejoin each run into one verse, one verse per stanza.
+  if (poem.paragraphs) {
+    poemLines = [];
+    let verse = [];
+    for (const raw of lines.slice(start, end + 1)) {
+      const l = raw.trim();
+      if (l) verse.push(l);
+      else if (verse.length) {
+        poemLines.push(verse.join(' '));
+        verse = [];
+      }
+    }
+    if (verse.length) poemLines.push(verse.join(' '));
+  }
+
+  // Scans carrying inline page numbers ("like you. {22}For life goes...")
+  // and typographic separator rules between sections.
+  if (poem.stripPageMarkers) {
+    poemLines = poemLines
+      .map((l) => l.replace(/\{\d+\}/g, '').replace(/\s{2,}/g, ' ').trim())
+      .filter((l) => l && !/^[*\s]+$/.test(l));
+  }
+
   // Editions that print marginal line numbers ("...fold, fallow, and plough;   5")
   if (poem.stripLineNumbers) {
     poemLines = poemLines.map((l) => l.replace(/\s+\d+$/, ''));
@@ -78,10 +103,13 @@ for (const poem of manifest.poems) {
   const poemLineCount = poemLines.length;
 
   // Stanza breaks (1-based line indexes to break after), lost in flattening.
-  for (const [n, at] of (poem.breaks ?? []).entries()) {
-    poemLines.splice(at + n, 0, '');
+  // In `paragraphs` mode the source's own blank lines already carry them.
+  if (!poem.paragraphs) {
+    for (const [n, at] of (poem.breaks ?? []).entries()) {
+      poemLines.splice(at + n, 0, '');
+    }
   }
-  const body = poemLines.join('\n');
+  const body = poemLines.join(poem.paragraphs ? '\n\n' : '\n');
   if (poem.rights === 'excerpt' && poemLineCount > MAX_EXCERPT_LINES) {
     throw new Error(
       `${poem.slug}: excerpt is ${poemLineCount} lines; hard rule allows max ${MAX_EXCERPT_LINES}`
